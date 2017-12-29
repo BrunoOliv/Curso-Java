@@ -3,6 +3,11 @@ class Conta {
 	Cliente titular;
 	private double saldo;
 	private double limite;
+	private static int numeroIncremental = 1;
+
+	public static int x() {
+		return 2*numeroIncremental;
+	}
 
 	public Conta(int numero, double limite) {
 		this(numero, limite, 0);
@@ -12,6 +17,11 @@ class Conta {
 		this.numero = numero;
 		this.limite = limite;
 		this.saldo = saldoInicial;
+	}
+
+	public Conta() {
+		this.numero = numeroIncremental;
+		numeroIncremental++;
 	}
 
 	public void saca (double valor){
@@ -32,6 +42,10 @@ class Conta {
 
 	public void setLimite (double novoLimite){
 		this.limite = novoLimite;
+	}
+
+	public int getNumero () {
+		return this.numero;
 	}
 }
 
